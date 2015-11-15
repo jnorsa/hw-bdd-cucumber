@@ -9,7 +9,7 @@ Background: movies have been added to database
   Given the following movies exist:
   | title                   | rating | release_date |
   | Aladdin                 | G      | 25-Nov-1992  |
-  | The Terminator          | R      | 26-Oct-1984  |
+  | The Trminator           | R      | 26-Oct-1984  |
   | When Harry Met Sally    | R      | 21-Jul-1989  |
   | The Help                | PG-13  | 10-Aug-2011  |
   | Chocolat                | PG-13  | 5-Jan-2001   |
@@ -23,8 +23,11 @@ Background: movies have been added to database
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  # your steps here
+ Then I should see "Aladdin" before "Amelie"
+ And I should see "Chicken Run" before "Raiders of the Lost Ark"
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   # your steps here
+ Then I should see "Aladdin" before "Amelie"
+ And I should see "2001: A Space Odyssey" before "Aladdin"
